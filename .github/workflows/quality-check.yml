@@ -1,0 +1,21 @@
+name: Quality Check
+
+# TRIGGER: When does this run?
+on:
+  pull_request:
+    branches: [ "development", "staging", "main" ]
+
+# JOBS: What actually happens?
+jobs:
+  test-the-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v3
+
+      - name: Run a fake test
+        run: |
+          echo "🤖 Starting the tests..."
+          echo "Checking for bugs..."
+          # This is where a real test command like 'npm test' would go
+          echo "✅ Tests passed!"
